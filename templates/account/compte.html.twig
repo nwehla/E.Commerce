@@ -4,5 +4,8 @@
 
 {% block content %}
 <h1>Mon compte</h1>
-Bienvenue {{ app.user.username }} dans votre compte c'est ici que vous pourrez gérer votre espace.
+Bienvenue {{ app.user.username }} dans votre compte.<br/>
+c'est ici que vous pourrez gérer votre espace personnel.<hr>
+
+-<a href="{{ path('account_password')}}">Modifier mon mot de passe</a>
 {% endblock %}
