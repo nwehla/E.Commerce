@@ -19,7 +19,8 @@ class RegisterController extends AbstractController
      */
     public function index(EntityManagerInterface $manager,Request $request,UserPasswordHasherInterface $encoder): Response
     {    
-        $customer = new Customer();   
+        $customer = new Customer(); 
+        dd($customer);  
         $form = $this->createForm(InscriptionType::class,$customer);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
