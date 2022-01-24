@@ -9,3 +9,35 @@ color: #000;
     padding-top: 25;
     position: fixed;
 }
+.produit_item h5{
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.produit_item .produit-prix{
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;  
+}
+.produit_item .produit-subtitle{
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+}
+.produit_item{
+border:solid 3px;
+    border-radius: 25%;
+    padding: 10px;
+    margin: 25px 15px;
+    background-color:honeydew;
+}
+.produit-container{
+    margin-bottom: 125px;
+}
+img{
+    width: 200px;
+}
+
+ 

@@ -22,6 +22,7 @@ class AccountPasswordController extends AbstractController
     { 
         //recupération de l'utilisateur en cours
         $customer = $this->getUser();
+        $notification = null;
         dd($customer);
         
         //creation du formulaire  de modification du mot de passe 
@@ -42,17 +43,21 @@ class AccountPasswordController extends AbstractController
                 //encodage du nouveau mot de passe
                 $enco_new_pwd = $encoder->hashPassword($customer,$new_pwd);
                 //enregistrement du mot de passe encodé dans le formulaire
-                // on persist 
-                $manager->persist($customer);
-                // on flush
+      // on flush
 
                 $manager->flush();
-                return $this->render('account/password.html.twig',[
-                    'formpass'=>$form->createview(),
-                  ]);
+                $notification = "la modification a bien été éffectué. ";
+                }else{
+                    $notification = "la modification du mot de passe n'a pas été éffectué";
+
                 }
          
         }
+        return $this->render('account/password.html.twig',[
+            'formpass'=>$form->createview(),
+            'notif'=>$notification,
+          ]);
+        
         
        
     
