@@ -1,3 +1,6 @@
+body{
+    position: relative;
+}
 .item-navbar-custom a{
 color: #000;
 }
@@ -7,7 +10,7 @@ color: #000;
     background-color: azure;
     width: 100%;
     padding-top: 25;
-    position: fixed;
+    position: absolute;
 }
 .produit_item h5{
     text-transform: uppercase;
@@ -37,7 +40,10 @@ border:solid 3px;
     margin-bottom: 125px;
 }
 img{
-    width: 200px;
+    width: 150px;
+}
+.produit-idiv img{
+    width: 70%;
 }
 
  

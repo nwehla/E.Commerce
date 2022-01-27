@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ produit.name }}-laboutiquefrançaise {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+        
+        <div class="produit_item text-center">
+            <h5>{{ produit.name }}</h5>
+                <span class="produit-subtitle">{{ produit.subtitle }}</span><br />
+            <span class="produit-prix">Prix: {{ (produit.prix /100)|number_format(2,',','.')}} €</span>
+        </div>
+    </div>
+
+    <div class="col-md-9 produit-idiv">
+                    <img class="produit-id" src="/uploads/{{ produit.illustration }}" alt="{{ produit.name }}img-fluid ">
+                    <h5>{{ produit.name }}</h5>
+                        <span class="produit-subtitle">{{ produit.subtitle }}</span><br />
+ 
+    </div>
+
+</div>
+{% endblock %}

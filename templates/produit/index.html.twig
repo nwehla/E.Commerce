@@ -1,21 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos produis  laboutiquefrançaise {% endblock %}
+{% block title %}Nos produis laboutiquefrançaise {% endblock %}
 
 {% block content %}
-<h1>Tous nos produits </h1>
 <div class="row">
-    {% for product in produits %}
-    <div class="col-md-4">
-        <div class="produit_item text-center">
-            <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}img-fluid ">
-            <h5>{{ product.name }}</h4>
-            <span class="produit-subtitle">{{ product.subtitle }}</span><br/>
-            <span class="produit-prix">Prix: {{ (product.prix /100)|number_format(2,',','.')}} €</span>
+    <div class="col-md-3">
+        <h5>Filtrer</h5>
+ {{ (form(formSearch)) }} 
+    </div>
+
+    <div class="col-md-9">
+        <h5>Tous nos produits </h5>
+
+        <div class="row produit-container">
+
+            {% for product in produits %}
+            <div class="col-md-4">
+                <div class="produit_item text-center">
+                    <a href="{{path('show',{'slug':product.slug})}}" class="badge badge-success">voir l'article</a><img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}img-fluid ">
+                    <h5>{{ product.name }}</h5>
+                        <span class="produit-subtitle">{{ product.subtitle }}</span><br />
+                        <span class="produit-prix">Prix: {{ (product.prix /100)|number_format(2,',','.')}} €</span>
+                </div>
+            </div>
+
+            {% endfor %}
+
         </div>
     </div>
-    
-    {% endfor %}
-    
+
 </div>
 {% endblock %}
