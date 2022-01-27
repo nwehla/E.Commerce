@@ -27,11 +27,12 @@ class SearchType extends AbstractType
             
 
             ->add('categorie' , EntityType::class , [
-                'label' => false ,
+                'label' => 'Selectionner la catégorie' ,
                 'required' => false ,
                 'class' => Categorie::class,
                 'multiple' => true ,
-                'expanded' => true
+                'expanded' => true,
+                'attr'=>['class'=>'btn-block btn-info'],
             ])
 
             ->add('submit' , SubmitType::class , [

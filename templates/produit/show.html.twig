@@ -10,6 +10,7 @@
             <h5>{{ produit.name }}</h5>
                 <span class="produit-subtitle">{{ produit.subtitle }}</span><br />
             <span class="produit-prix">Prix: {{ (produit.prix /100)|number_format(2,',','.')}} €</span>
+            <a href="{{ path('add_to_card')}}">Ajouter au panier</a>
         </div>
     </div>
 

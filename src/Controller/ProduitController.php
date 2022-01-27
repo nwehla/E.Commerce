@@ -19,9 +19,6 @@ class ProduitController extends AbstractController
      */
     public function index(ProduitRepository $repo,Request $request,EntityManagerInterface $manager): Response
     {
-        //affichage des produits grace a l'injection de dependance dans la fonction .
-
-        $produits = $repo->findAll();
         //instanciation de l'objet search
         $search = new Search();
 
@@ -33,6 +30,11 @@ class ProduitController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
 //recherche des produits dans la barre de recherche
             $produits = $repo->findWithSearch($search);
+        }else{
+             //affichage des produits grace a l'injection de dependance dans la fonction .
+
+        $produits = $repo->findAll();
+       
         }
         return $this->render('produit/index.html.twig ',[
             'produits'=>$produits,
