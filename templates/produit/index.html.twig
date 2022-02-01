@@ -17,7 +17,7 @@
             {% for product in produits %}
             <div class="col-md-4">
                 <div class="produit_item text-center">
-                    <a href="{{path('show',{'slug':product.slug})}}" class="badge badge-success">voir l'article</a><img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}img-fluid ">
+                    <a href="{{path('show',{'slug':product.slug})}}" class="badge badge-success">voir l'article</a><img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}img-fluid " width="150 px">
                     <h5>{{ product.name }}</h5>
                         <span class="produit-subtitle">{{ product.subtitle }}</span><br />
                         <span class="produit-prix">Prix: {{ (product.prix /100)|number_format(2,',','.')}} €</span>

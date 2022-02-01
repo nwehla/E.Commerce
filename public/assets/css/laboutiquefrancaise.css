@@ -38,12 +38,12 @@ border:solid 3px;
 .produit-container{
     margin-bottom: 125px;
 }
-img{
+  /* img{
     width: 150px;
-}
+}  */
 .produit-idiv img{
     width: 70%;
-}
+} 
 .produits-produits h5{
     
     font-weight: bold;
@@ -54,6 +54,10 @@ img{
     border: solid;
     background-color: cyan;
     margin: 20px,20px;
+}
+
+td .illus {
+    width: 150px;
 }
 
  

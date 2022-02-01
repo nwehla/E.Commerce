@@ -1,20 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CardController!{% endblock %}
+{% block title %}Mon panier-La booutiqueFrançaise{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block content %}
+<h1>Mon panier</h1>
+<p>Retrouvez l'ensemble des produits ajoutés</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">   </th>
+        <th scope="col">Produit</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Total</th>
+        <th scope="col">Supprimer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% set total = null %}
+        {% for produit in card %}
+        <td class="illus"><img  src="/uploads/{{ produit.produit.illustration }}" alt="{{ produit.produit.name }}img-fluid " height="80px" class="border border-solid 5px" width="150px"> 
+        </td>
+        <th scope="row">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+          {{ produit.produit.name }}<br/> 
+          <small> {{ produit.produit.subtitle }} </small>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/symfony/realisations/laboutiquefrançaise/src/Controller/CardController.php'|file_link(0) }}">src/Controller/CardController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/symfony/realisations/laboutiquefrançaise/templates/card/index.html.twig'|file_link(0) }}">templates/card/index.html.twig</a></code></li>
-    </ul>
-</div>
+        </th>
+        <td>x {{ produit.quantité}}</td> 
+         <td>{{ (produit.produit.prix /100)|number_format(2,',','.')}} €</td> 
+         <td>{{ ((produit.produit.prix /100)*(produit.quantité))|number_format(2,',','.') }} €</td>
+         <td class="supimg"><img id="1" src="{{ asset('assets/img/trash.png')}}" height="18px" </td> 
+      {% set total = total + ((produit.produit.prix /100)*(produit.quantité)) %}
+        </tr>
+         {% endfor %} 
+    </tbody>
+  </table>
+  <div class="text-right mb-5 ">
+    <b><p >nombre total de produits: {{ card|length }}</p></b><br/>
+    <b><p >prix total: {{ total }} €</p></b>
+    <input type="submit" value="Valider mon panier" class="btn btn-success btn-block">
+  </div>
+
 {% endblock %}
